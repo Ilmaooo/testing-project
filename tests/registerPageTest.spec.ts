@@ -6,7 +6,8 @@ test("Verify registration", async ({ page }) => {
   await registerPage.openHomePage();
   await registerPage.clickUserIcon();
   await registerPage.navigateToRegisterPage();
-  await registerPage.fillRegisterForm("test3", "test3", "test3@gmail.com", "Test12345", "Test12345");   
+  await registerPage.fillRegisterForm("test12", "test12", "test16@gmail.com", "Test12345", "Test12345");   
   await registerPage.agreeToTerms();
   await registerPage.submitRegisterForm();
+  await registerPage.verifRegistration();
 });

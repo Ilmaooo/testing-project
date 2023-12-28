@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import LoginPage from "../pages/registerPage/loginPage/LoginPage";
+import LoginPage from "../pages/loginPage/LoginPage";
 
 test("Verify login", async ({ page }) => {
   const loginPage = new LoginPage(page);
@@ -7,4 +7,5 @@ test("Verify login", async ({ page }) => {
   await loginPage.clickUserIcon();
   await loginPage.fillLoginForm("ilmaogresevic1@gmail.com", "Najboljagrupa6");
   await loginPage.login();
+  await loginPage.verifyLogin();
 });

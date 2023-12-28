@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import AddToCart from "../pages/registerPage/cart/AddToCart";
+import AddToCart from "../pages/cart/addToCart";
 
 test("Verify Adding products into cart", async ({ page }) => {
   const addToCart = new AddToCart(page);
