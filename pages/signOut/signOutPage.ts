@@ -1,38 +1,32 @@
 import { Page, chromium } from "playwright";
 import LoginPage from "../loginPage/LoginPage";
+
 class SignOutPage {
   private page: Page;
+  private loginPage: LoginPage;
 
   constructor(page: Page) {
     this.page = page;
+    this.loginPage = new LoginPage(page);
   }
 
-  async openHomePage() {
-    await this.page.goto("https://fontele.ba/");
+  async logIn() {
+    await this.loginPage.openHomePage();
+    await this.loginPage.clickUserIcon();
+    await this.loginPage.fillLoginForm(
+      "ilmaogresevic1@gmail.com",
+      "Najboljagrupa6"
+    );
+    await this.loginPage.login();
+    await this.loginPage.openHomePage();
+    console.log("Logged in successfully!");
     await this.page.waitForLoadState("networkidle");
   }
 
-  async clickUserIcon() {
-    await this.page.click('[aria-label="Loguj se"]');
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async fillLoginForm(email: string, password: string) {
-    await this.page.fill('[id="login-email"]', email);
-    await this.page.fill('[id="login-password"]', password);
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async login() {
-    await this.page.click('[class="btn btn-primary btn-submit"]');
-    console.log(this.page.url());
-  }
   async clickUser() {
-    
-    await this.page.click('[aria-label="Pregledaj svoj profil"]', 
-    {timeout: 20000,
+    await this.page.click('[aria-label="Pregledaj svoj profil"]', {
+      timeout: 20000,
     });
-    
   }
 
   async clickLogOut() {
@@ -40,6 +34,9 @@ class SignOutPage {
       'ul.dropdown-menu.show a[href="https://fontele.ba/auth/logout"]',
       { timeout: 10000 }
     );
+  }
+  async  clickUserIcon(){
+    await this.loginPage.clickUserIcon();
   }
 }
 
