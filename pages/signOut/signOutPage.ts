@@ -28,12 +28,11 @@ class SignOutPage {
     console.log(this.page.url());
   }
   async clickUser() {
-    await this.page.waitForSelector('svg.icon use[xlink\\:href="#user"]', {
-      timeout: 10000,
+    
+    await this.page.click('[aria-label="Pregledaj svoj profil"]', 
+    {timeout: 20000,
     });
-    await this.page.click('svg.icon use[xlink\\:href="#user"]', {
-      timeout: 20000,
-    });
+    
   }
 
   async clickLogOut() {
