@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import FilteringProducts from '../pages/filterBySizePage/filteringProducts';
 
+// TEST CASE TC_11 //
+
 test('Filtering products on fontele.ba', async ({ page }) => {
   const filteringProducts = new FilteringProducts();
 
