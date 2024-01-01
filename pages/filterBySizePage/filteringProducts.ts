@@ -1,3 +1,4 @@
+// TEST CASE TC_10 //
 class filteringProducts {
     async navigate(page){
         await page.goto('https://www.fontele.ba');
