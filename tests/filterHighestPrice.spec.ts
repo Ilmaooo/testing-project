@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
-import filterLowestPrice from '../pages/filterFromLowestPrice/filterLowestPrice';
+import filterHighestPrice from '../pages/filterFromHighestPrice/filterHighestPrice';
 
 // TEST CASE TC_10 //
 
 test('Filtering products on fontele.ba', async ({ page }) => {
-  const filteringProducts = new filterLowestPrice();
+  const filteringProducts = new filterHighestPrice();
 
   await filteringProducts.navigate(page);
 
@@ -21,21 +21,21 @@ test('Filtering products on fontele.ba', async ({ page }) => {
   await filteringProducts.filterClick(page);
 
   //check if the dropdown appeared
-  await expect(page.locator('.dropdown-item[data-sort="price"][data-order="asc"]')).toBeVisible();
+  await expect(page.locator('.dropdown-item[data-sort="price"][data-order="desc"]')).toBeVisible();
 
   //click on "Cijena: od najniže prema najvišoj"
   await filteringProducts.filterTypeClick(page);
 
   //check if it is showing filtered page
-  await expect(page.url()).toBe('https://fontele.ba/shop/kucanski-aparati/kafe-aparati?sort=price&sort_order=asc&');
+  await expect(page.url()).toBe('https://fontele.ba/shop/kucanski-aparati/kafe-aparati?sort=price&sort_order=desc&');
 
-    // !!!!waiting for the assistant to tell if checking new url is enough!!!!
-    /*
+  // !!!!waiting for the assistant to tell if checking new url is enough!!!!
+  /*
   //get the first two products
   const product1 = await page.locator('.pjax .col:nth-child(1)');
   const product2 = await page.locator('.pjax .col:nth-child(2)');
 
-  // Compare prices of the first two products //
+  // Compare prices //
 
   //get the price of the first two products
   const price1Element = await product1.locator('.price span').first();
@@ -51,7 +51,7 @@ test('Filtering products on fontele.ba', async ({ page }) => {
             const numericPrice1 = parseFloat(price1.replace(',', '.')); // Convert commas to dots
             const numericPrice2 = parseFloat(price2.replace(',', '.')); // Convert commas to dots
 
-            expect(numericPrice1).toBeLessThanOrEqual(numericPrice2);
+            expect(numericPrice1).toBeGreaterThan(numericPrice2);
         } else {
             console.error('Prices are null.');
         }
