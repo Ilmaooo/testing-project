@@ -13,6 +13,7 @@ class AddToCart {
         await this.page.waitForLoadState("networkidle");
     }
 
+
     async searchProduct(productName: string) {
         await this.page.click('[id="autocomplete"]');
         await this.page.fill('[id="autocomplete"]', productName);
