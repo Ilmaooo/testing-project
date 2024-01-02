@@ -13,6 +13,20 @@ class AddToCart {
         await this.page.waitForLoadState("networkidle");
     }
 
+    async searchProduct(productName: string) {
+        await this.page.click('[id="autocomplete"]');
+        await this.page.fill('[id="autocomplete"]', productName);
+        await this.page.click('[title="Pretraži stranicu"]');
+        await this.page.waitForLoadState("networkidle");
+        console.log(`Searching for product with name: ${productName}`);
+    }
+
+    async verifySearchResult(productName: string) {
+        const link = await this.page.url();
+        await expect(link).toContain(productName);
+        console.log(`Products with name ${productName} listed.`)
+    }
+
     async clickOnProduct(productAltText: string) {
         const productElement = await this.page.$(`[alt="${productAltText}"]`);
 
