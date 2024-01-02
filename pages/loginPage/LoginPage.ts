@@ -1,4 +1,6 @@
 import { Page } from "playwright";
+import { expect } from "@playwright/test";
+
 
 class LoginPage {
     private page: Page;
@@ -26,6 +28,14 @@ class LoginPage {
     async login(){
         await this.page.click('[class="btn btn-primary btn-submit"]');
     }
+
+    async verifyLogin(){
+        await this.page.waitForLoadState("load");
+        const currentUrl = await this.page.url();
+        expect(currentUrl).toBe("https://fontele.ba/");
+        console.log("Login successful");
+    }
+    
 }
 
 export default LoginPage;
