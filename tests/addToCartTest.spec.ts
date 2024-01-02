@@ -1,4 +1,4 @@
-////REGRESSION 3////
+////SMOKE 3////
 
 import { test, expect } from "@playwright/test";
 import AddToCart from "../pages/cart/AddToCart";
