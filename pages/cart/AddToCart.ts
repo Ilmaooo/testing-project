@@ -1,4 +1,5 @@
 import { Page } from "playwright";
+import {expect} from "@playwright/test";
 
 class AddToCart {
     private page: Page;
@@ -12,26 +13,37 @@ class AddToCart {
         await this.page.waitForLoadState("networkidle");
     }
 
-    async clickOnProduct(productSelector: string) {
-        await this.page.click(productSelector);
+    async clickOnProduct(productAltText: string) {
+        const productElement = await this.page.$(`[alt="${productAltText}"]`);
+
+        if (productElement) {
+            // Scroll the element into view if it's not already visible
+            await productElement.scrollIntoViewIfNeeded();
+            
+            // Click on the element
+            await productElement.click();
+            console.log(`Clicked on product with alt text: ${productAltText}`);
+        } else {
+            throw new Error(`Product element not found with alt text: ${productAltText}`);
+        }
         await this.page.waitForLoadState("networkidle");
     }
 
     async addToCart() {
-        await this.page.click('[data-id="cartSide"]');
+        await this.page.click('.add_to_cart_btn');
+        console.log("Clicked on Add to cart button");
         await this.page.waitForLoadState("networkidle");
     }
-    async navigateToCart(){
-        await this.page.click('[data-id="cartSide"]');
-        await this.page.click('[aria-label="Pogledaj sadržaj korpe."]');
-    }
-    async getCartItemCountFromTitle(): Promise<number> {
-        const titleElement = await this.page.$('.box-wrapper-title.text-uppercase');
-        const titleText = titleElement ? await titleElement.textContent() : '';
-        const cartItemCount = parseInt(titleText.match(/\((\d+)\)/)?.[1] || '0', 10);
-        return cartItemCount;
-    }
 
+    async verifyAddingToCart(title: string){
+        // Wait for the element with the specified title attribute
+        const addedProductElement = await this.page.waitForSelector(`[title="${title}"]`, { timeout: 5000 });
+
+        await expect(addedProductElement).toBeDefined();
+        console.log(`Product with title ${title} added to cart successfully.`);
+    }
 }
+ 
+
 
 export default AddToCart;

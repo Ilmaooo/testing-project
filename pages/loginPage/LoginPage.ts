@@ -30,9 +30,10 @@ class LoginPage {
     }
 
     async verifyLogin(){
-        await this.page.waitForLoadState("load");
+        
         const currentUrl = await this.page.url();
         expect(currentUrl).toBe("https://fontele.ba/");
+        await this.page.waitForLoadState("load");
         console.log("Login successful");
     }
     
