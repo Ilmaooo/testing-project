@@ -1,3 +1,5 @@
+////SMOKE 1////
+
 import { test, expect } from "@playwright/test";
 import RegisterPage from "../pages/registerPage/RegisterPage";
 
