@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import SearchPage from "../pages/homePage/searchPage";
+import SearchPage from "../pages/searchPage/searchPage";
 
 test("Verify Searching" , async ({ page }) => {
     const searchPage = new SearchPage(page);
@@ -7,4 +7,5 @@ test("Verify Searching" , async ({ page }) => {
     await searchPage.clickSearchEngine();
     await searchPage.fillSerachBar("!#$");
     await searchPage.submitSearch();
+    await searchPage.verifySearchInvalidInput("Nema rezultata za tvoj upit.");
 });
