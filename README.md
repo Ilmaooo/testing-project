@@ -12,6 +12,7 @@ Test Subject www.fontele.ba is a test subject for no particular reason. It cover
 ### Visual Studio Code (VSCode)
 
 To insall VSCode, follow this link https://code.visualstudio.com/
+
 Extensions needed: Playwright Test for VSCode
 ### Node.js and node package manager (npm)
 
