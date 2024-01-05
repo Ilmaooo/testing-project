@@ -13,7 +13,6 @@ class KorpaPage {
 
     async deleteProduct() {
         await this.page.click('[aria-label="Remove item from list"]');
-        console.log("Clicked on Delete from cart button");
         await this.page.waitForLoadState("networkidle");
     }
 

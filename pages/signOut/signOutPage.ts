@@ -1,4 +1,4 @@
-import { Page, chromium } from "playwright";
+import { Page } from "playwright";
 import LoginPage from "../loginPage/LoginPage";
 
 class SignOutPage {
@@ -19,7 +19,6 @@ class SignOutPage {
     );
     await this.loginPage.login();
     await this.loginPage.openHomePage();
-    console.log("Logged in successfully!");
     await this.page.waitForLoadState("networkidle");
   }
 
