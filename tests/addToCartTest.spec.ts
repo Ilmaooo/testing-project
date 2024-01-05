@@ -3,12 +3,23 @@
 import { test, expect } from "@playwright/test";
 import AddToCart from "../pages/cart/AddToCart";
 
-
-test("Verify Adding products into cart", async ({ page }) => {
+// SMOKE 3 - Verify Adding products into cart using Home Page //
+test("Verify Adding products into cart using Home Page", async ({ page }) => {
   const addToCart = new AddToCart(page);
+
+  // Step 1 - Navigate to Home Page
   await addToCart.openHomePage();
+  // expect: Home Page is displayed
+  await expect(page.url()).toBe('https://fontele.ba/')
+  
+  // Step 2 - Click on any product shown in the Home Page
   await addToCart.clickOnProduct('TESLA sušilica veša WT8C91M');
+  // expect: product url to be opened
+  await expect(page.url()).toBe('https://fontele.ba/proizvod/tesla-susilica-vesa-wt8c91m/3366');
+  
+  // Step 3 - Click on 'Dodaj u korpu' button
   await addToCart.addToCart();
+  // expect - on the sidebar pop up, chosen product is visible
   await expect(page.locator('[title="TESLA sušilica veša WT8C91M"]')).toBeVisible();
 });
 

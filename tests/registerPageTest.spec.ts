@@ -8,7 +8,7 @@ test("Verify registration", async ({ page }) => {
   await registerPage.openHomePage();
   await registerPage.clickUserIcon();
   await registerPage.navigateToRegisterPage();
-  await registerPage.fillRegisterForm("test12", "test12", "test70@gmail.com", "Test12345", "Test12345");   
+  await registerPage.fillRegisterForm("test12", "test12", "test71@gmail.com", "Test12345", "Test12345");   
   await registerPage.agreeToTerms();
   await registerPage.submitRegisterForm();
   expect(page.url()).toContain(

@@ -1,7 +1,4 @@
 import { Page } from "playwright";
-import { expect } from "@playwright/test";
-
-
 class LoginPage {
     private page: Page;
 
