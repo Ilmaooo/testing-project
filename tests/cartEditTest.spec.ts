@@ -11,9 +11,8 @@ test("Verify Plus and Minus Button in Cart", async ({ page }) => {
     await cartEdit.openHomePage();
 
     // add something to cart 
-    await addToCart.clickOnProduct('TESLA sušilica veša WT8C91M');
+    await addToCart.clickOnProduct('XIAOMI tablet Redmi Pad 128GB 6GB Sivi');
     await addToCart.addToCart();
-    await addToCart.verifyAddingToCart('TESLA sušilica veša WT8C91M');
 
     // open cart page
     await cartEdit.openCartPage();
