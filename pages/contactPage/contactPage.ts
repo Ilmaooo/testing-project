@@ -1,4 +1,4 @@
-import { Page, chromium } from "playwright";
+import { Page } from "playwright";
 class ContactPage {
   private page: Page;
 
