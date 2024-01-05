@@ -1,9 +1,9 @@
-////SMOKE 3 and 4////
+////ST3, ST4////
 
 import { test, expect } from "@playwright/test";
 import AddToCart from "../pages/cart/AddToCart";
 
-// SMOKE 3 - Verify Adding products into cart using Home Page //
+// SMOKE TEST 3 - Verify Adding products into cart using Home Page //
 test("Verify Adding products into cart using Home Page", async ({ page }) => {
   const addToCart = new AddToCart(page);
 
@@ -23,7 +23,7 @@ test("Verify Adding products into cart using Home Page", async ({ page }) => {
   await expect(page.locator('[title="TESLA sušilica veša WT8C91M"]')).toBeVisible();
 });
 
-// SMOKE 4 - Verifying Adding products into cart using Search engine
+// SMOKE TEST 4 - Verifying Adding products into cart using Search engine
 test("Verify Adding products into cart using Search engine", async ({page}) => {
   const addUsingSearch = new AddToCart(page);
 
@@ -50,6 +50,6 @@ test("Verify Adding products into cart using Search engine", async ({page}) => {
 
   // expect: opened side bar
   // Step 8 - Verify that the added product is in the cart
-  // expect: verify that the added product is in the chart
+  // expect: verify that the added product is in the cart
   await expect(page.locator('[title="OPPO mobitel Reno A53 128GB 4GB Plava"]')).toBeVisible();
 });
