@@ -18,7 +18,6 @@ class AddToCart {
         await this.page.fill('[id="autocomplete"]', productName);
         await this.page.click('[title="Pretraži stranicu"]');
         await this.page.waitForLoadState("networkidle");
-        console.log(`Searching for product with name: ${productName}`);
     }
 
     async clickOnProduct(productAltText: string) {
@@ -30,7 +29,6 @@ class AddToCart {
             
             // Click on the element
             await productElement.click();
-            console.log(`Clicked on product with alt text: ${productAltText}`);
         } else {
             throw new Error(`Product element not found with alt text: ${productAltText}`);
         }
@@ -39,7 +37,6 @@ class AddToCart {
 
     async addToCart() {
         await this.page.click('.add_to_cart_btn');
-        console.log("Clicked on Add to cart button");
         await this.page.waitForLoadState("networkidle");
     }
 }
