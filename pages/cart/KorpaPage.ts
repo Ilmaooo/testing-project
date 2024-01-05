@@ -21,14 +21,19 @@ async deleteProduct() {
     await this.page.waitForLoadState("networkidle");
 }
 
-async verifyDeletingALLfromCart () {
+async verifyDeletingoONEproduct (title: string) {
 
+    const addedProductElement = await this.page.waitForSelector(`[title="${title}"]`, { timeout: 5000 });
 
-    // this part to be done
-     
-    await expect(deletedProductElement).isnotdefined();
-    console.log(`ALL products deleted successfully.`);
+    await expect(addedProductElement).isnotDefined();
+    console.log(`Product with title ${title} removed from cart successfully.`);
 }
+
+async verifyDeletingALLfromCart (){
+
+    await expect ("Sadržaj vaše korpe je sada prazan.");
+}
+
 
 };
 

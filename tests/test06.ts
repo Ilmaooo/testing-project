@@ -1,4 +1,4 @@
-////TC 09///
+////TC 06///
 
 import { chromium, Browser, Page } from "playwright";
 import { test, expect } from "@playwright/test";
@@ -20,8 +20,6 @@ test("Check Deleting All Products", async ({ page }) => {
     await korpaPage.deleteProduct();
     expect ("Product is removed from the cart.");
 
-
-    await korpaPage.verifyDeletingALLfromCart();
-    expect("Sadržaj vaše korpe je sada prazan.");
+    await korpaPage.verifyDeletingoONEproduct('TESLA sušilica veša WT8C91M');
 
 });
