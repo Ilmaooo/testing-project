@@ -9,7 +9,7 @@ test("Verify Adding products into cart", async ({ page }) => {
   await addToCart.openHomePage();
   await addToCart.clickOnProduct('TESLA sušilica veša WT8C91M');
   await addToCart.addToCart();
-  await addToCart.verifyAddingToCart('TESLA sušilica veša WT8C91M');
+  await expect(page.locator('[title="TESLA sušilica veša WT8C91M"]')).toBeVisible();
 });
 
 test("Verify Adding products into cart using Search engine", async ({page}) => {
@@ -19,5 +19,5 @@ test("Verify Adding products into cart using Search engine", async ({page}) => {
   await addUsingSearch.verifySearchResult('oppo');
   await addUsingSearch.clickOnProduct('OPPO mobitel Reno A53 128GB 4GB Plava');
   await addUsingSearch.addToCart();
-  await addUsingSearch.verifyAddingToCart('OPPO mobitel Reno A53 128GB 4GB Plava');
+  await expect(page.locator('[title="OPPO mobitel Reno A53 128GB 4GB Plava"]')).toBeVisible();
 });

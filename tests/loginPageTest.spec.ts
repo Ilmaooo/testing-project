@@ -9,7 +9,6 @@ test("Verify login", async ({ page }) => {
   await loginPage.clickUserIcon();
   await loginPage.fillLoginForm("ilmaogresevic1@gmail.com", "Najboljagrupa6");
   await loginPage.login();
-  await loginPage.verifyLogin();
   expect(page.url()).toContain(
     "https://fontele.ba/"
   );

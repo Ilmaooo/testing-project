@@ -27,16 +27,7 @@ class LoginPage {
 
     async login(){
         await this.page.click('[class="btn btn-primary btn-submit"]');
-    }
-
-    async verifyLogin(){
-        
-        const currentUrl = await this.page.url();
-        expect(currentUrl).toBe("https://fontele.ba/");
-        await this.page.waitForLoadState("load");
-        console.log("Login successful");
-    }
-    
+    }    
 }
 
 export default LoginPage;

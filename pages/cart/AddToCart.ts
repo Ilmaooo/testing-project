@@ -49,14 +49,6 @@ class AddToCart {
         console.log("Clicked on Add to cart button");
         await this.page.waitForLoadState("networkidle");
     }
-
-    async verifyAddingToCart(title: string){
-        // Wait for the element with the specified title attribute
-        const addedProductElement = await this.page.waitForSelector(`[title="${title}"]`, { timeout: 5000 });
-
-        await expect(addedProductElement).toBeDefined();
-        console.log(`Product with title ${title} added to cart successfully.`);
-    }
 }
  
 

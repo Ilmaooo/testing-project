@@ -36,14 +36,6 @@ class RegisterPage {
     async submitRegisterForm(){
         await this.page.click('[class="btn btn-primary btn-submit"]');
     }
-   
-    async verifRegistration(){
-        await this.page.waitForLoadState("load");
-        const titleElement = await this.page.waitForSelector('[class="page-title text-center"]');
-        const title = await titleElement.innerText();
-        expect(title).toBe("Verifikuj email adresu");
-        console.log("Registration successful");
-    }
 }
 
 export default RegisterPage;
