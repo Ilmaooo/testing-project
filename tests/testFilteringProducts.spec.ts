@@ -6,15 +6,15 @@ import FilteringProducts from '../pages/filterBySizePage/filteringProducts';
 // TEST CASE TC_11 //
 
 test('Filtering products on fontele.ba', async ({ page }) => {
-  const filteringProducts = new FilteringProducts();
+  const filteringProducts = new FilteringProducts(page);
 
-  await filteringProducts.navigate(page);
+  await filteringProducts.navigate();
 
   //navigate to Home page fontele.ba
   await expect(page.url()).toBe('https://fontele.ba/');
 
   //click on category Mobiteli in Popularne kategorije
-  await filteringProducts.categoryClick(page);
+  await filteringProducts.categoryClick();
 
   //verify if it has opened the category page for category Mobiteli
   await expect(page.url()).toBe('https://fontele.ba/shop/mobiteli-i-oprema/mobiteli');
@@ -23,7 +23,7 @@ test('Filtering products on fontele.ba', async ({ page }) => {
   await expect(page.locator('input#velicina-ekrana_od-4-do-6.form-check-input')).toBeVisible();
 
   //click on “Od 4’’ do 6’’” check box
-  await filteringProducts.sizeSelection(page);
+  await filteringProducts.sizeSelection();
 
   //verify if the check box is checked
   expect(await page.isChecked('input#velicina-ekrana_od-4-do-6.form-check-input')).toBeTruthy();

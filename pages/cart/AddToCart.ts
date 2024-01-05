@@ -1,5 +1,4 @@
 import { Page } from "playwright";
-import {expect} from "@playwright/test";
 
 class AddToCart {
     private page: Page;
@@ -20,12 +19,6 @@ class AddToCart {
         await this.page.click('[title="Pretraži stranicu"]');
         await this.page.waitForLoadState("networkidle");
         console.log(`Searching for product with name: ${productName}`);
-    }
-
-    async verifySearchResult(productName: string) {
-        const link = await this.page.url();
-        await expect(link).toContain(productName);
-        console.log(`Products with name ${productName} listed.`)
     }
 
     async clickOnProduct(productAltText: string) {
