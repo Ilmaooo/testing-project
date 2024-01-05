@@ -1,17 +1,24 @@
 // TEST CASE TC_10 //
+import { Page } from "playwright";
 class filteringProducts {
-    async navigate(page){
-        await page.goto('https://www.fontele.ba');
+    private page: Page;
+
+    constructor(page: Page) {
+        this.page = page;
     }
 
-    async categoryClick(page) {
+    async navigate(){
+        await this.page.goto('https://www.fontele.ba');
+    }
+
+    async categoryClick() {
         //click on Mobiteli in Popularne kategorije
-        await page.click('h3.category-name:has-text("Mobiteli")');
+        await this.page.click('h3.category-name:has-text("Mobiteli")');
     }
 
-    async sizeSelection(page) {
+    async sizeSelection() {
         //select size
-        await page.check('input#velicina-ekrana_od-4-do-6.form-check-input');
+        await this.page.check('input#velicina-ekrana_od-4-do-6.form-check-input');
     }
 }
 

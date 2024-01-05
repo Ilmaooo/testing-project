@@ -1,5 +1,4 @@
 import { Page } from "playwright";
-import {expect} from "@playwright/test";
 
 class AddToCart {
     private page: Page;
