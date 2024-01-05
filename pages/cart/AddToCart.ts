@@ -22,12 +22,6 @@ class AddToCart {
         console.log(`Searching for product with name: ${productName}`);
     }
 
-    async verifySearchResult(productName: string) {
-        const link = await this.page.url();
-        await expect(link).toContain(productName);
-        console.log(`Products with name ${productName} listed.`)
-    }
-
     async clickOnProduct(productAltText: string) {
         const productElement = await this.page.$(`[alt="${productAltText}"]`);
 
