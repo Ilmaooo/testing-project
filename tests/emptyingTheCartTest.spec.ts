@@ -1,6 +1,5 @@
 ////RT2////
 
-import { chromium, Browser, Page } from "playwright";
 import { test, expect } from "@playwright/test";
 import AddToCart from "../pages/cart/AddToCart";
 import KorpaPage from "../pages/cart/KorpaPage";
@@ -20,6 +19,7 @@ test("Check Deleting All Products", async ({ page }) => {
 
   // Step 2- Click the cart icon
   await cartEdit.openCartPage();
+  await expect(page.url()).toBe('https://fontele.ba/korpa');
 
   // Step 3- Click on “x” icon
   await korpaPage.deleteProduct();

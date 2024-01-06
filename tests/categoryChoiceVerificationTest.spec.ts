@@ -1,6 +1,5 @@
 ////RT5////
 
-import { chromium, Browser, Page } from "playwright";
 import { test, expect } from "@playwright/test";
 import CategoryPage from "../pages/categories/categorySelection";
 

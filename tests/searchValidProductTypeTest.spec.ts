@@ -1,4 +1,5 @@
 ////RT6////
+
 import { test, expect } from "@playwright/test";
 import SearchPage from "../pages/searchPage/searchPage";
 
@@ -7,6 +8,7 @@ test("Verify Searching", async ({ page }) => {
 
   // Step1- Navigate to Home Page
   await searchPage.openHomePage();
+  expect(page.url()).toBe('https://fontele.ba/');
 
   // Step 2- Click on the Search input field “Pretraga proizvoda…”
   await searchPage.clickSearchEngine();

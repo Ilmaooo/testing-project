@@ -1,6 +1,5 @@
 ////RT4////
 
-import { chromium, Browser, Page } from "playwright";
 import { test, expect } from "@playwright/test";
 import AddToCart from "../pages/cart/AddToCart";
 import KorpaPage from "../pages/cart/KorpaPage";
@@ -20,11 +19,13 @@ test("Check Deleting One Product", async ({ page }) => {
   await addToCart.openHomePage();
   // Step 2- Click on the desired product.
   await addToCart.clickOnProduct("TESLA sušilica veša WT8C91M");
+  await expect(page.url()).toBe('https://fontele.ba/proizvod/tesla-susilica-vesa-wt8c91m/3366');
   // Step 3- Click on “dodaj u korpa “button
   await addToCart.addToCart();
 
   // Step 4- Click the cart icon
   await cartEdit.openCartPage();
+  await expect(page.url()).toBe('https://fontele.ba/korpa');
 
   // expect- The quantity of products in cart is 2
   const quantity0 = await korpaPage.getCartQuantity();
