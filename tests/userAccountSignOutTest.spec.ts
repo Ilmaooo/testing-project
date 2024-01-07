@@ -18,5 +18,5 @@ test("Verify sign out", async ({ page }) => {
   // Step 4  Click the user icon, again
   // Expect: "Prijava korisnika" page should appear
   await signOutPage.clickUserIcon();
-  expect(page.url()).toContain("https://fontele.ba/auth/login");
+  await expect(page.url()).toContain("https://fontele.ba/auth/login");
 });

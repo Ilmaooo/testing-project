@@ -8,11 +8,11 @@ test("Check contact form", async ({ page }) => {
 
   // Step 1 - Navigate to home page
   await contactPage.openPage();
-  expect(page.url()).toContain("https://fontele.ba");
+  await expect(page.url()).toContain("https://fontele.ba");
 
   // Step 2 - Click the “Kontakt” button
   await contactPage.openContactForm();
-  expect(page.url()).toContain("https://fontele.ba/kontakt");
+  await expect(page.url()).toContain("https://fontele.ba/kontakt");
 
   // Step 3 - Enter name and surname
 
@@ -22,7 +22,7 @@ test("Check contact form", async ({ page }) => {
     "input#full_name",
     (input) => (input as HTMLInputElement).value
   );
-  expect(name).toEqual("Amina Kadić");
+  await expect(name).toEqual("Amina Kadić");
 
   // Step 4 - Enter email
   await contactPage.enterEmail("kadicamina01@gmail.com");
@@ -32,7 +32,7 @@ test("Check contact form", async ({ page }) => {
     "input#email",
     (input) => (input as HTMLInputElement).value
   );
-  expect(email).toEqual("kadicamina01@gmail.com");
+  await expect(email).toEqual("kadicamina01@gmail.com");
 
   // Step 4 - Enter message
   await contactPage.enterMessage("This is a message");
@@ -42,5 +42,5 @@ test("Check contact form", async ({ page }) => {
     "textarea#msg",
     (textarea) => (textarea as HTMLTextAreaElement).value
   );
-  expect(message).toEqual("This is a message");
+  await expect(message).toEqual("This is a message");
 });

@@ -12,6 +12,7 @@ test("Check Deleting All Products", async ({ page }) => {
 
   // Step1- Navigate to home page
   await cartEdit.openHomePage();
+  await expect(page.url()).toBe('https://fontele.ba/');
 
   // Pre-condition: User has added a product in cart
   await addToCart.clickOnProduct("XIAOMI tablet Redmi Pad 128GB 6GB Sivi");

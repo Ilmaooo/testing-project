@@ -23,6 +23,8 @@ test("Verify Adding products into cart using Home Page", async ({ page }) => {
   await expect(page.locator('[title="TESLA sušilica veša WT8C91M"]')).toBeVisible();
 });
 
+
+
 // SMOKE TEST 4 - Verifying Adding products into cart using Search engine
 test("Verify Adding products into cart using Search engine", async ({page}) => {
   const addUsingSearch = new AddToCart(page);

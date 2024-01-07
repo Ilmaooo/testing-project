@@ -15,6 +15,12 @@ test("Verify Searching" , async ({ page }) => {
 
   // Step 3- Enter text
   await searchPage.fillSerachBar("!#$");
+  // Verify that search bar is filled in
+  const searchBar = await page.$eval(
+    "input#autocomplete",
+    (input) => (input as HTMLInputElement).value
+  );
+  await expect(searchBar).toEqual("!#$");    
 
   // Step 4- Click on the “search” button
   await searchPage.submitSearch();
