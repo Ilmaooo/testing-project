@@ -33,7 +33,7 @@ test("Filtering products on fontele.ba", async ({ page }) => {
   await filteringProducts.filterTypeClick();
 
   // Step 8- Verify the prices are sorted lowest to highest
-  await expect(page.url()).toBe(
+  expect(page.url()).toBe(
     "https://fontele.ba/shop/kucanski-aparati/kafe-aparati?sort=price&sort_order=asc&"
   );
 });
