@@ -8,13 +8,19 @@ test("Verify Searching", async ({ page }) => {
 
   // Step1- Navigate to Home Page
   await searchPage.openHomePage();
-  expect(page.url()).toBe('https://fontele.ba/');
+  await expect(page.url()).toBe('https://fontele.ba/');
 
   // Step 2- Click on the Search input field “Pretraga proizvoda…”
   await searchPage.clickSearchEngine();
 
   // Step 3- Enter text
   await searchPage.fillSerachBar("mobitel");
+  // Verify that search bar is filled in
+  const searchBar = await page.$eval(
+    "input#autocomplete",
+    (input) => (input as HTMLInputElement).value
+  );
+  await expect(searchBar).toEqual("mobitel");  
 
   // Step 4- Click on the “search” button
   await searchPage.submitSearch();

@@ -19,19 +19,19 @@ test("Verify Plus and Minus Button in Cart", async ({ page }) => {
 
   //expect- the quantity of product added is 1
   const quantity0 = await cartEdit.getValue();
-  expect(quantity0).toBe("1");
+  await expect(quantity0).toBe("1");
 
   //Step 3- Click on „+“ button
   await cartEdit.clickPlus();
 
   //expect- the quantity of product is increased to 2
   const quantity1 = await cartEdit.getValue();
-  expect(quantity1).toBe("2");
+  await expect(quantity1).toBe("2");
 
   //Step 4- Click on „-“ button
   await cartEdit.clickMinus();
 
   //expect- the quantity of product is decreased to 1
   const quantity2 = await cartEdit.getValue();
-  expect(quantity2).toBe("1");
+  await expect(quantity2).toBe("1");
 });

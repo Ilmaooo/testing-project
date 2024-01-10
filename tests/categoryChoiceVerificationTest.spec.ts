@@ -16,7 +16,7 @@ test("Verify category selection", async ({ page }) => {
   await categoryPage.clickCategory();
   
   // Step 4- Verify that only products from chosen category are displayed
-  expect(page.url()).toContain(
+  await expect(page.url()).toContain(
     "https://fontele.ba/shop/mobiteli-i-oprema/slusalice"
   );
 });
