@@ -3,7 +3,7 @@
 import { test, expect } from "@playwright/test";
 import AddToCart from "../pages/cart/AddToCart";
 import KorpaPage from "../pages/cart/KorpaPage";
-import CartEdit from "../pages/CartEdit/CartEdit";
+import CartEdit from "../pages/cart/CartEdit";
 
 test("Check Deleting One Product", async ({ page }) => {
   const addToCart = new AddToCart(page);

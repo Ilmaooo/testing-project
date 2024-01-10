@@ -1,6 +1,6 @@
 ////RT3////
 import { test, expect } from "@playwright/test";
-import CartEdit from "../pages/CartEdit/CartEdit";
+import CartEdit from "../pages/cart/CartEdit";
 import AddToCart from "../pages/cart/AddToCart";
 
 test("Verify Plus and Minus Button in Cart", async ({ page }) => {
